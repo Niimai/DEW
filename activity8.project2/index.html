@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Activity 6: Arkanoid</title>
+    <style>
+
+      .row{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        border: 1px solid #F00;
+      }
+      .brick{
+        border: 1px solid #000;
+        min-width: 100px;
+        height: 20px;
+      }
+      .hightlight{
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Activity 6: Arkanoid</h1>
+    <p>Let's play. This activity is a challenge to develop the world-wide known game <a href="https://es.wikipedia.org/wiki/Arkanoid" target="_blank">Arkanoid</a> under the following requirements:</p>
+      <ul>
+        <li>This proyect is a javascript practise, every element must be and html element, no canvas nor svg approach will be valid.</li>
+        <li>(2 points) Paint the level: the level consist on a bidimensional array containing objects with a "life" property, each first level corresponds to every row of blocks in the level while every object represents a brick whose life property corresponds to the number of hits it might receive before the brick breaks . I.E.:
+        <pre>
+          var level = [
+            [{life: 0},{life: 0},{life: 0},{life: 0}], //this line with life: 0 means empty space
+            [{life: 1},{life: 1},{life: 1},{life: 1}],
+            [{life: 2},{life: 2},{life: 2},{life: 2}],
+            [{life: 3},{life: 3},{life: 3},{life: 3}],
+          ]
+        </pre>
+        </li>
+        <li>(1.5 points) Paint the vaus (the paddle) and move it, for example, when left/rigth arrows are pressed</li>
+        <li>(1.5 points) Paint the ball and make if move arround the game area changing direction when hitting any left,top or rigth limits.</li>
+        <li>(1.5 points) Make the ball interact with the vaus</li>
+        <li>(3.5 points) Make the ball collide with the bricks, each time the ball hits a brick it might change direction and the brick reduces 1 life. The brick dissapears (preserving the space it occupies) when it get to 0 lifes.</li>
+      </ul>
+      <h2>Guiding code:</h2>
+      <div class="stage">
+        <div class="row"><div class="brick"></div><div class="brick"></div><div class="brick"></div></div>
+        <div class="row"><div class="brick"></div><div class="brick"></div><div class="brick"></div></div>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+      <script>
+      document.onmousemove = handleMouseMove;
+      var intro;
+      function handleMouseMove(event) {
+          var x = event.clientX;
+          var y = event.clientY;
+          $('.brick').removeClass('hightlight');
+          $('.row').each(function(){
+            var bounds = this.getBoundingClientRect();
+            if (bounds.bottom >= y && bounds.top <= y){
+              $(this).children('.brick').each(function(){
+                var bounds = this.getBoundingClientRect();
+                if (bounds.left <= x && bounds.right >= x){
+                  $(this).addClass('hightlight');
+                }
+              })
+
+            }
+          })
+
+      }
+      </script>
+
+  </body>
+</html>

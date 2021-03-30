@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Activity 5: Objects</title>
+  </head>
+  <body>
+    <h1>Activity 5: Objects</h1>
+    <p>This is classy! Follow the specifications to create some javascript classes:</p>
+      <ul>
+        <li>Create <strong>Window</strong> class:
+          <ul>
+            <li>whose <strong>constructor</strong> will draw a windows (shh! It will be a div don't tell anybody) in the html body, will recieve an object "options" whith the following specification:
+              <ul>
+                <li>width: numeric value meaning the windows width in pixels.</li>
+                <li>height: numeric value meaning the windows height in pixels.</li>
+                <li>posX: numeric value meaning the windows position in pixels regarding the left.</li>
+                <li>posY: numeric value meaning the windows position in pixels regarding the top.</li>
+              </ul>
+            </li>
+            <li>Add the method <strong>setTitle</strong> which receives a string argument and adds it as the title of the window</li>
+            <li>Add the method <strong>setContent</strong> which receives an HTMLElement argument and adds it as the content of the window</li>
+          </ul>
+        </li>
+        <li>Create <strong>Calculator</strong> class:
+          <ul>
+            <li>Calculator inherits from "Window" class.</li>
+            <li>whose <strong>constructor</strong> will receive the same as Windows does but it also inserts a calculator that:
+              <ul>
+                <li>Has a data display.</li>
+                <li>Butons from 0 to 9 and a dot (.) as decimal separator.</li>
+                <li>Buttons for operations: add (+), substract (-), multiply (*), divide (/)</li>
+                <li>Reset button (C)</li>
+                <li>Result button (=)</li>
+              </ul>
+            </li>
+            <li>Add the nessesary code to activate buttons functionality
+              <ul>
+                <li>By pressing a number it is added to the number shown in the display.</li>
+                <li>When pressing an operator button displays cleans and waits for the following data.</li>
+                <li>By pressing the reset button the display cleans and reset all pending operations</li>
+                <li>By pressing the result button the display showa the result of the operations</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Window dragging: add the code you need to drag windows when click-keeping on the title bar until mouse click is released</li>
+      </ul>
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+  </body>
+</html>
