@@ -35,10 +35,9 @@
             "department": "HR"
         }]
 
-        for (var i = 0; i < employees.length; i++) {
-            alert("nombre: " + employees[i].name);
-
-        }
+        employees.forEach(element => {
+            alert("Id: " + element.id + ", Nombre: " + element.name + ", Departamento: " + element.department);
+        });
     </script>
 </body>
 

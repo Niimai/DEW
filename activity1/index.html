@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,13 +10,71 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Activity 1: DOM manipulation</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Activity 1: DOM manipulation</h1>
     <p>On this activity we will show the data in the variable employees in this html as a table, build all the elements with js functions</p>
+
     <div id="table-container"></div>
+
     <script>
-     var employees = [{"id":1,"name":"MIRIAM CASTIÑEIRA BREA","department":"IT"},{"id":2,"name":"GONZALO MULET FIGUERAS","department":"IT"},{"id":3,"name":"FRANCISCO JOSE GRAÑA BARBERA","department":"IT"},{"id":4,"name":"IRENE POMBO JORDA","department":"HR"}]
+        window.onload = genera_tabla;
+
+        var employees = [{
+            "id": 1,
+            "name": "MIRIAM CASTIÑEIRA BREA",
+            "department": "IT"
+        }, {
+            "id": 2,
+            "name": "GONZALO MULET FIGUERAS",
+            "department": "IT"
+        }, {
+            "id": 3,
+            "name": "FRANCISCO JOSE GRAÑA BARBERA",
+            "department": "IT"
+        }, {
+            "id": 4,
+            "name": "IRENE POMBO JORDA",
+            "department": "HR"
+        }]
+
+        function genera_tabla() {
+            // Obtener la referencia del elemento body
+            var body = document.getElementsByTagName("body")[0];
+
+            // Crea un elemento <table> y un elemento <tbody>
+            var tabla = document.createElement("table");
+            var tblBody = document.createElement("tbody");
+
+            // Crea las celdas
+            for (var i = 0; i < 4; i++) {
+                // Crea las filas de la tabla
+                var fila = document.createElement("tr");
+
+                for (var j = 0; j < 1; j++) {
+                    // Crea un elemento <td> y un nodo de texto, hacemos que el nodo de
+                    // texto sea el contenido de <td>, ubicando el elemento <td> al final
+                    // de la hilera de la tabla
+                    var celda = document.createElement("td");
+                    var textoCelda = document.createTextNode("id: " + employees[i].id + "Nombre: " + employees[i].name + "Departamento: " + employees[i].department);
+                    celda.appendChild(textoCelda);
+                    fila.appendChild(celda);
+                }
+
+                // agrega la hilera al final de la tabla (al final del elemento tblbody)
+                tblBody.appendChild(fila);
+            }
+
+            // posiciona el <tbody> debajo del elemento <table>
+            tabla.appendChild(tblBody);
+            // appends <table> into <body>
+            body.appendChild(tabla);
+            // modifica el atributo "border" de la tabla y lo fija a "2";
+            tabla.setAttribute("border", "2");
+        }
     </script>
-  </body>
+
+</body>
+
 </html>
