@@ -16,11 +16,9 @@
     <h1>Activity 1: DOM manipulation</h1>
     <p>On this activity we will show the data in the variable employees in this html as a table, build all the elements with js functions</p>
 
-    <div id="table-container"></div>
+    <div id="table-container" style="text-align:center;"></div>
 
     <script>
-        window.onload = genera_tabla;
-
         var employees = [{
             "id": 1,
             "name": "MIRIAM CASTIÑEIRA BREA",
@@ -39,40 +37,56 @@
             "department": "HR"
         }]
 
-        function genera_tabla() {
-            // Obtener la referencia del elemento body
-            var body = document.getElementsByTagName("body")[0];
+        var tableContainer = document.getElementById('table-container');
+        var table = document.createElement('table');
 
-            // Crea un elemento <table> y un elemento <tbody>
-            var tabla = document.createElement("table");
-            var tblBody = document.createElement("tbody");
+        var th = document.createElement('th');
+        var thead = table.createTHead();
 
-            // Crea las celdas
-            for (var i = 0; i < 4; i++) {
-                // Crea las filas de la tabla
-                var fila = document.createElement("tr");
+        var theadRow = thead.insertRow();
 
-                for (var j = 0; j < 1; j++) {
-                    // Crea un elemento <td> y un nodo de texto, hacemos que el nodo de
-                    // texto sea el contenido de <td>, ubicando el elemento <td> al final
-                    // de la hilera de la tabla
-                    var celda = document.createElement("td");
-                    var textoCelda = document.createTextNode("id: " + employees[i].id + "Nombre: " + employees[i].name + "Departamento: " + employees[i].department);
-                    celda.appendChild(textoCelda);
-                    fila.appendChild(celda);
-                }
+        var thId = document.createElement('th');
+        thId.innerHTML = 'ID';
 
-                // agrega la hilera al final de la tabla (al final del elemento tblbody)
-                tblBody.appendChild(fila);
-            }
+        var thName = document.createElement('th');
+        thName.innerHTML = 'Nombre';
 
-            // posiciona el <tbody> debajo del elemento <table>
-            tabla.appendChild(tblBody);
-            // appends <table> into <body>
-            body.appendChild(tabla);
-            // modifica el atributo "border" de la tabla y lo fija a "2";
-            tabla.setAttribute("border", "2");
+        var thDepartment = document.createElement('th');
+        thDepartment.innerHTML = 'Departamento';
+
+        theadRow.appendChild(thId);
+        theadRow.appendChild(thName);
+        theadRow.appendChild(thDepartment);
+
+        tableContainer.appendChild(table);
+
+        var tdId, tdName, tdDeparment;
+
+        tbody = table.createTBody();
+
+        var tbodyEmployees = employees.map((e) => {
+            tdId = document.createElement('td');
+            tdName = document.createElement('td');
+            tdDepartment = document.createElement('td');
+
+            tdId.innerHTML = e.id;
+            tdName.innerHTML = e.name;
+            tdDepartment.innerHTML = e.department;
+
+            tr = document.createElement('tr');
+
+            tr.appendChild(tdId);
+            tr.appendChild(tdName);
+            tr.appendChild(tdDepartment);
+
+            return tr;
+        });
+
+        for (var i = 0; i < tbodyEmployees.length; i++) {
+            tbody.appendChild(tbodyEmployees[i]);
         }
+
+        table.setAttribute("border", "2");
     </script>
 
 </body>
