@@ -1,0 +1,27 @@
+.calculadora {
+    border: 3px ridge;
+    width: 200px;
+    text-align: center;
+    background-color: #555555;
+}
+
+#display {
+    width: 140px;
+    height: 20px;
+    text-align: right;
+    position: relative;
+    left: 24px;
+    padding: 0px 5px;
+    background-color: white;
+    font-family: "courier new";
+    overflow: hidden;
+}
+
+.calculadora [type=button] {
+    width: 35px;
+    padding: 0;
+}
+
+.calculadora input.c {
+    width: 75px;
+}
