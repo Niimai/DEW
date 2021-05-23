@@ -18,47 +18,50 @@
         <li>Each table cell must contain a text like: "Row: X, Col: Y"</li>
     </ol>
 
-    <input type="button" value="Genera una tabla" onclick="genera_tabla()">
+    <form>
+        <label for="filas">Filas</label>
+        <br>
+        <input type="text" name="filas" id="filas">
+        <br><br>
+        <label for="columnas">Columnas</label>
+        <br>
+        <input type="text" name="columnas" id="columnas">
+        <br><br><br>
+        <input type="button" value="Generar Tabla" onclick="genera_tabla()">
 
+    </form>
+    <br>
 
     <script>
         function genera_tabla() {
-            // Obtener la referencia del elemento body
+
+            let columna = parseInt(document.querySelector('#columnas').value);
+            let fila = parseInt(document.querySelector('#filas').value);
+
             var body = document.getElementsByTagName("body")[0];
 
-            // Crea un elemento <table> y un elemento <tbody>
             var tabla = document.createElement("table");
             var tblBody = document.createElement("tbody");
 
-            // Crea las celdas
-            for (var i = 0; i < 2; i++) {
-                // Crea las hileras de la tabla
+            for (var i = 0; i < fila; i++) {
                 var hilera = document.createElement("tr");
-
-                for (var j = 0; j < 2; j++) {
-                    // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-                    // texto sea el contenido de <td>, ubica el elemento <td> al final
-                    // de la hilera de la tabla
+                for (var j = 0; j < columna; j++) {
                     var celda = document.createElement("td");
-                    var textoCelda = document.createTextNode("Fila " + i + ", Columna " + j);
+                    var textoCelda = document.createTextNode("Fila " + (i + 1) + " - Columna " + (j + 1));
                     celda.appendChild(textoCelda);
                     hilera.appendChild(celda);
                 }
 
-                // agrega la hilera al final de la tabla (al final del elemento tblbody)
                 tblBody.appendChild(hilera);
-            }
 
-            // posiciona el <tbody> debajo del elemento <table>
-            tabla.appendChild(tblBody);
-            // appends <table> into <body>
-            body.appendChild(tabla);
-            // modifica el atributo "border" de la tabla y lo fija a "2";
-            tabla.setAttribute("border", "2");
+                tabla.appendChild(tblBody);
+
+                body.appendChild(tabla);
+
+                tabla.setAttribute("border", "2");
+            }
         }
     </script>
-
-
 </body>
 
 </html>
