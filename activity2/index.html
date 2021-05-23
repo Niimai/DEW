@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,11 +10,64 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Activity 2: jQuery + AJAX request + DOM manipulation</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Activity 2: jQuery + AJAX request + DOM manipulation</h1>
     <p>With JQuery load de data on the sibling file employees.json and build a table showing the data:</p>
     <div id="table-container"></div>
+    <table></table>
+    </div>
+    <script>
+        let contenido = document.querySelector('#table-container');
+
+        function recuperar() {
+            fetch('employees.json')
+                .then(result => result.json())
+                .then(datos => {
+                    tabla(datos)
+                })
+        }
+
+        function tabla(datos) {
+            let employees = [];
+            employees = datos;
+
+            function generarThead(table, data) {
+                let thead = table.createTHead();
+                let row = thead.insertRow();
+                for (let key of data) {
+                    let th = document.createElement("th");
+                    let text = document.createTextNode(key);
+                    th.appendChild(text);
+                    row.appendChild(th);
+                }
+            }
+
+            function generarTabla(table, data) {
+                for (let elemento of data) {
+                    let row = table.insertRow();
+                    for (key in elemento) {
+                        let cell = row.insertCell();
+                        let text = document.createTextNode(elemento[key]);
+                        cell.appendChild(text);
+                    }
+                }
+            }
+
+            let table = document.querySelector("table");
+            let data = Object.keys(employees[0]);
+            table.setAttribute("border", "2");
+            generarThead(table, data);
+            generarTabla(table, employees);
+            table.style.border = "2px red";
+            table.style.display = "flex";
+            table.style.justifyContent = "center";
+        }
+
+        recuperar();
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  </body>
+</body>
+
 </html>
