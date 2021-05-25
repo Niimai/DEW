@@ -1,15 +1,25 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>Activity 4: Change the image</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Activity 4: Change the image</h1>
     <p>Change the following image with changed.png only if changed.png exists in the server (you need to add the images)</p>
-    <img src="./default.png" alt="just an image">
-  </body>
+
+    <script>
+        var contenido = document.createElement("div");
+        contenido.innerHTML = '<img src="img/empire.png" alt="just a image">';
+        document.body.appendChild(contenido);
+    </script>
+
+    <script type="text/javascript" src="js/change_img.js"></script>
+</body>
+
 </html>
