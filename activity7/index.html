@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,39 +9,47 @@
     <title>Activity 7: the audio tag + events</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-      .controls div{
-        float: left;
-        margin: 10px;
-        border: 3px solid #000;
-        font-size: 2em;
-        text-align: center;
-        width: 50px;
-        border-radius: 5px;
-      }
+        .controls div {
+            float: left;
+            margin: 10px;
+            border: 3px solid #000;
+            font-size: 2em;
+            text-align: center;
+            width: 50px;
+            border-radius: 5px;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Activity 7: the audio tag + events</h1>
     <p>This is a music player with a playlist</p>
     <ul>
-      <li>Add a play icon to the item in the playlist that is currently playing.</li>
-      <li>Add controls to <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento/audio">audio tag</a>: play/pause, go back, go forward.</li>
-      <li>When 1 audio ends the following one must estart playing automatically</li>
+        <li>Add a play icon to the item in the playlist that is currently playing.</li>
+        <li>Add controls to <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento/audio">audio tag</a>: play/pause, go back, go forward.</li>
+        <li>When 1 audio ends the following one must estart playing automatically</li>
     </ul>
 
-    <ol>
-      <li>music1.mp3</li>
-      <li>music2.mp3</li>
-      <li>music3.mp3</li>
-    </ol>
-    <audio>
-     <source src="" type="audio/mpeg">
-     Your browser does not support the audio tag.
-    </audio>
+    <div id="playList"></div>
+
+    <audio id="player">
+		<source  id="source">	
+		Your browser does not support the audio tag.	
+	</audio>
+
     <div class="controls">
-      <div class="play"><i class="fa fa-play"></i></div>
-      <div class="backward"><i class="fa fa-step-backward"></i></div>
-      <div class="fordward"><i class="fa fa-step-forward"></i></div>
+        <button type="button" id="play"><div class="play"><i class="fa fa-play"></i></div></button>
+        <button type="button" id="pause"><div class="pause"><i class="fa fa-pause"></i></div></button>
+        <button type="button" id="backward" onclick="prevMusic();"><div class="backward"><i class="fa fa-step-backward"></i></div></button>
+        <button type="button" id="fordward" onclick="nextMusic();"><div class="fordward"><i class="fa fa-step-forward"></i></div></button>
+        <br>
+        <p>Canción: <span id="currentPlay"></span></p>
     </div>
-  </body>
+    </div>
+
+
+
+    <script type="text/javascript" src="js/reproductor.js"></script>
+</body>
+
 </html>
