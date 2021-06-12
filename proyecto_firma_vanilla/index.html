@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FirmaTron 4000!</title>
+</head>
+
+<body>
+    <section class="form">
+        <h4>FirmaTron 4000!</h4>
+        <input id="input-name" class="copytextarea controls" type="text" placeholder="Nombre y Apellidos">
+        <input id="input-position" class="controls" type="text" placeholder="Cargo en la Empresa">
+        <input id="input-phone" class="controls" type="text" placeholder="Teléfono">
+        <input id="input-mail" class="controls" type="email" placeholder="Correo Electronico">
+
+        <p>Selecciona una imagen:</p>
+
+        <select id="selector" onclick="cargarImg()">
+            <option>NINGUNO</option>
+            <option value="./img/logo1.gif">Wesser 1</option>
+            <option value="./img/logo2.png">Wesser 2</option>
+            <option value="./img/logo3.png">Wesser 3</option>
+        </select>
+
+        <br><br>
+        <hr>
+
+        <div id="container">
+            <div id="text-container">
+                <p id="show-text-name"></p>
+                <span id="show-text-pos"></span>
+                <p class="parrafo"><b>Wesser and Partner S.L.</b>
+                </p>
+                <hr>
+                <p id="show-text-phone"></p>
+                <span id="show-text-mail"></span>
+                <p class="parrafo">www.wesser.es
+                </p>
+                <hr>
+                <p class="parrafo">Plaza Santa Barbara, 5 - 5º
+                </p>
+                <p class="parrafo">28004 - Madrid - España
+                </p>
+            </div>
+            <div id="img-container">
+                <img id="imgTag" />
+                <button class="form-btn" onClick="selectText('container')"> Copiar!</button>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
